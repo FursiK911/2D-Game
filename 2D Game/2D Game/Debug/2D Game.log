@@ -1,0 +1,10 @@
+﻿  Player.cpp
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(11): warning C4305: =: усечение из "double" к "float"
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(17): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(29): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(39): warning C4244: -=: преобразование "double" в "float", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(62): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+  Создание кода...
+  Пропуск... (изменения не обнаружены)
+  main.cpp
+  2D Game.vcxproj -> D:\Учеба\C++\Курсовая\2D Game\Debug\2D Game.exe
