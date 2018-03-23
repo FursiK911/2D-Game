@@ -1,9 +1,8 @@
 #pragma once
+#include "SFML\Graphics.hpp"
 class  ISpawner
 {
 public:
-	ISpawner() { };
 	virtual ~ISpawner() { };
-
-	virtual void spawn() = 0;
-}
+	virtual sf::Sprite& spawn() = 0;
+};

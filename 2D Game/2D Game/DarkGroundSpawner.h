@@ -12,7 +12,6 @@ private:
 public:
 	DarkGroundSpawner();
 	~DarkGroundSpawner();
-	Sprite& getSprite();
-	void spawn();
+	Sprite& spawn();
 };
 

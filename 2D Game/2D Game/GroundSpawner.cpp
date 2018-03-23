@@ -4,9 +4,10 @@
 
 GroundSpawner::GroundSpawner()
 {
-	path = "images/texture.png";
+	path = "images/textures.png";
 	image.loadFromFile(path);
 	texture.loadFromImage(image);
+	sprite.setTexture(texture);
 	sprite.setTextureRect(IntRect(0, 0, 32, 32));
 }
 
@@ -15,12 +16,7 @@ GroundSpawner::~GroundSpawner()
 {
 }
 
-Sprite & GroundSpawner::getSprite()
+Sprite& GroundSpawner::spawn()
 {
 	return sprite;
-}
-
-void GroundSpawner::spawn()
-{
-
 }

@@ -2,7 +2,7 @@
 #include"SFML\Graphics.hpp"
 #include"ISpawner.h"
 using namespace sf;
-class GroundSpawner : ISpawner
+class GroundSpawner : public ISpawner
 {
 private:
 	char* path;
@@ -12,7 +12,6 @@ private:
 public:
 	GroundSpawner();
 	~GroundSpawner();
-	Sprite& getSprite();
-	void spawn();
+	Sprite& spawn();
 };
 
