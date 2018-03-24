@@ -1,4 +1,11 @@
-﻿  GameProcess.cpp
-d:\учеба\c++\курсовая\2d game\2d game\gameprocess.cpp(24): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
-main.obj : error LNK2005: "class sf::String * TileMap" (?TileMap@@3PAVString@sf@@A) уже определен в GameProcess.obj
-D:\Учеба\C++\Курсовая\2D Game\Debug\2D Game.exe : fatal error LNK1169: обнаружен многократно определенный символ - один или более
+﻿  Player.cpp
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(14): warning C4305: =: усечение из "double" к "float"
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(19): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(32): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(44): warning C4244: -=: преобразование "double" в "float", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(75): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(90): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(91): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(101): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(109): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  2D Game.vcxproj -> D:\Учеба\C++\Курсовая\2D Game\Debug\2D Game.exe

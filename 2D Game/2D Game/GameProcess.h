@@ -2,7 +2,6 @@
 #include "SFML\Graphics.hpp"
 #include "Player.h"
 #include "Map.h"
-#include "Scene1.h"
 using namespace sf;
 
 
@@ -12,8 +11,10 @@ private:
 	RenderWindow* window;
 	Clock* clock;
 	Player* player;
+	Camera* camera;
 	Map* map;
-	float time;
+	float time, speedGame;
+
 public:
 	GameProcess();
 	~GameProcess();

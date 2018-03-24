@@ -1,4 +1,5 @@
 #include "GameProcess.h"
+#include "Scene1.h"
 using namespace sf;
 
 
@@ -7,8 +8,10 @@ GameProcess::GameProcess()
 {
 	window = new RenderWindow(sf::VideoMode(800, 600), "2D Game");
 	clock = new Clock();
-	player = new Player("hero.png", 0, 0, 50, 75);
+	player = new Player("hero.png", 200, 200, 50, 75);
 	map = new Map();
+	camera = new Camera();
+	speedGame = 200;
 }
 
 
@@ -23,7 +26,7 @@ void GameProcess::start()
 	{
 		time = clock->getElapsedTime().asMicroseconds();
 		clock->restart();
-		time /= 200; //скорость игры
+		time /= speedGame; //скорость игры
 
 		sf::Event event;
 		while (window->pollEvent(event))
@@ -32,7 +35,10 @@ void GameProcess::start()
 				window->close();
 		}
 		player->update(time);
+		player->interactionWithMap(TileMap);
+		camera->setCameraPosition(player->getHeroCoordinateX() + 100, player->getHeroCoordinateY(), LEFT_BORDER, RIGHT_BORDER, UPPER_BORDER, LOWER_BORDER);
 		window->clear();
+		window->setView(camera->getCamera());
 		map->buildMap(*window, TileMap, HEIGHT_MAP, WIDTH_MAP);
 		window->draw(player->getHeroSprite());
 		window->display();

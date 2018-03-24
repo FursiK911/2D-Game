@@ -33,6 +33,9 @@
     <ClCompile Include="GameProcess.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -54,6 +57,9 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="GameProcess.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,9 +6,9 @@ class GroundSpawner : public ISpawner
 {
 private:
 	char* path;
-	Image image;
-	Texture texture;
-	Sprite sprite;
+	Image* image;
+	Texture* texture;
+	Sprite* sprite;
 public:
 	GroundSpawner();
 	~GroundSpawner();
