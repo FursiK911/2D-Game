@@ -17,7 +17,7 @@ GameProcess::GameProcess()
 
 GameProcess::~GameProcess()
 {
-	delete window, clock, player, map;
+	delete window, clock, player, map, camera;
 }
 
 void GameProcess::start()
@@ -35,12 +35,11 @@ void GameProcess::start()
 				window->close();
 		}
 		player->update(time);
-		player->interactionWithMap(TileMap);
-		camera->setCameraPosition(player->getHeroCoordinateX() + 100, player->getHeroCoordinateY(), LEFT_BORDER, RIGHT_BORDER, UPPER_BORDER, LOWER_BORDER);
+		camera->setCameraPosition(player->getCoordinateX() + 100, player->getCoordinateY(), LEFT_BORDER, RIGHT_BORDER, UPPER_BORDER, LOWER_BORDER);
 		window->clear();
 		window->setView(camera->getCamera());
 		map->buildMap(*window, TileMap, HEIGHT_MAP, WIDTH_MAP);
-		window->draw(player->getHeroSprite());
+		window->draw(player->getSprite());
 		window->display();
 	}
 }
