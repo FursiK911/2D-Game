@@ -8,8 +8,6 @@ const int RIGHT_BORDER = 880;
 const int UPPER_BORDER = 300;
 const int LOWER_BORDER = 310;
 
-
-
 sf::String TileMap[HEIGHT_MAP] = {
 	"0000000000000000000000000000000000000000",
 	"0                                      0",
@@ -24,10 +22,10 @@ sf::String TileMap[HEIGHT_MAP] = {
 	"0                                      0",
 	"0                                      0",
 	"0                                      0",
+	"0         0                            0",
 	"0                                      0",
 	"0                                      0",
 	"0                                      0",
-	"0                                      0",
-	"0                                      0",
+	"0         0                            0",
 	"0000000000000000000000000000000000000000",
 };

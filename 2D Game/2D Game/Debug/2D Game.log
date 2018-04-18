@@ -1,26 +1,12 @@
 ﻿  Player.cpp
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(14): warning C4305: =: усечение из "double" к "float"
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(20): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(47): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-  MoveRightCommand.cpp
-d:\учеба\c++\курсовая\2d game\2d game\moverightcommand.cpp(18): error C2059: синтаксическая ошибка: )
-d:\учеба\c++\курсовая\2d game\2d game\moverightcommand.cpp(18): error C2297: *: недопустимо, правый оператор имеет тип "time_t (__cdecl *)(time_t *const )"
-d:\учеба\c++\курсовая\2d game\2d game\moverightcommand.cpp(24): error C2297: *: недопустимо, правый оператор имеет тип "time_t (__cdecl *)(time_t *const )"
-  MoveLeftCommand.cpp
-d:\учеба\c++\курсовая\2d game\2d game\moveleftcommand.cpp(17): error C2059: синтаксическая ошибка: )
-d:\учеба\c++\курсовая\2d game\2d game\moveleftcommand.cpp(17): error C2297: *: недопустимо, правый оператор имеет тип "time_t (__cdecl *)(time_t *const )"
-d:\учеба\c++\курсовая\2d game\2d game\moveleftcommand.cpp(23): error C2297: *: недопустимо, правый оператор имеет тип "time_t (__cdecl *)(time_t *const )"
-  GameProcess.cpp
-d:\учеба\c++\курсовая\2d game\2d game\gameprocess.cpp(27): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
-  Entity.cpp
-d:\учеба\c++\курсовая\2d game\2d game\entity.cpp(107): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\entity.cpp(108): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\entity.cpp(113): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\entity.cpp(115): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-  Command.cpp
-  Создание кода...
-  Компиляция...
-  main.cpp
-  JumpCommand.cpp
-  AttackCommand.cpp
-  Создание кода...
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(17): warning C4305: =: усечение из "double" к "float"
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(23): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(49): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(57): warning C4305: =: усечение из "double" к "float"
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(65): warning C4305: =: усечение из "double" к "float"
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(82): warning C4305: =: усечение из "double" к "float"
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(92): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(93): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(98): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+d:\учеба\c++\курсовая\2d game\2d game\player.cpp(100): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  2D Game.vcxproj -> D:\Учеба\C++\Курсовая\2D Game\Debug\2D Game.exe

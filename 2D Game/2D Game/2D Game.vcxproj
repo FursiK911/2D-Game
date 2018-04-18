@@ -148,37 +148,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AttackCommand.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Command.cpp" />
     <ClCompile Include="DarkGroundSpawner.cpp" />
-    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameProcess.cpp" />
     <ClCompile Include="GroundSpawner.cpp" />
-    <ClCompile Include="JumpCommand.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="MoveLeftCommand.cpp" />
-    <ClCompile Include="MoveRightCommand.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Setting.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AttackCommand.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Command.h" />
     <ClInclude Include="DarkGroundSpawner.h" />
-    <ClInclude Include="Entity.h" />
     <ClInclude Include="GameProcess.h" />
     <ClInclude Include="GroundSpawner.h" />
     <ClInclude Include="ISpawner.h" />
-    <ClInclude Include="JumpCommand.h" />
     <ClInclude Include="Map.h" />
-    <ClInclude Include="MoveLeftCommand.h" />
-    <ClInclude Include="MoveRightCommand.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene1.h" />
-    <ClInclude Include="Setting.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

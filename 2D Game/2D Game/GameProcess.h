@@ -2,7 +2,7 @@
 #include "SFML\Graphics.hpp"
 #include "Player.h"
 #include "Map.h"
-#include <vector>
+#include "Camera.h"
 using namespace sf;
 
 
@@ -11,12 +11,10 @@ class GameProcess
 private:
 	RenderWindow* window;
 	Clock* clock;
-	Entity* player;
-	std::vector<Entity*> entity;
-	Camera* camera;
+	Player* player;
 	Map* map;
-	float speedGame;
-
+	Camera* camera;
+	float time;
 public:
 	GameProcess();
 	~GameProcess();

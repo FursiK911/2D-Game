@@ -1,22 +1,52 @@
 #pragma once
 #include "SFML\Graphics.hpp"
-#include "Camera.h"
-#include "Entity.h"
 using namespace sf;
-// TODO:Сделать общий класс родителя для игрока и врага
-class Player : public Entity
+
+class Player
 {
+private:
+	float x, y, weight, height, dx, dy, currentFrame, speed;
+	String* file;
+	Image* image;
+	Texture* texture;
+	Sprite* sprite;
+	bool attack, combo, onGround, isMove;
 public:
 	Player(String f, float x, float y, float w, float h);
 	~Player();
-	bool combo;
 
-	void ControlPlayer(float time);
-	void update(float t);
+	void update(float t, String * map);
 
-	bool getCombo();
-	void setCombo(bool c);
-	
+	enum { left, right, up, down, jump, stay } state;//добавляем тип перечисления - состояние объекта
 
+	void control();
+
+	void checkCollisionWithMap(float Dx, float Dy, String * TileMap);
+
+	Image getImage();
+	Texture getTexture();
+	Sprite getSprite();
+	void setImage(Image& i);
+	void setTexture(Texture& t);
+	void setSprite(Sprite& s);
+
+	float getCoordinateX();
+	void setCoordinateX(float px);
+	float getDX();
+	void setDX(float pdx);
+
+	float getCoordinateY();
+	void setCoordinateY(float py);
+	float getDY();
+	void setDY(float pdy);
+
+	float getCurrentFrame();
+	void setCurrentFrame(float c);
+
+	float getSpeed();
+	void setSpeed(float s);
+
+	bool getOnGround();
+	void setOnGround(bool ongroud);
 };
 
