@@ -6,7 +6,6 @@ using namespace sf;
 class Player : public Entity
 {
 private:
-	String* file;
 	int directionMove;
 	bool attack, combo, onGround;
 public:

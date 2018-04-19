@@ -2,6 +2,7 @@
 #include "SFML\Graphics.hpp"
 #include "Entity.h"
 #include "Player.h"
+#include "Enemy.h"
 #include "Map.h"
 #include "Camera.h"
 using namespace sf;
@@ -13,6 +14,7 @@ private:
 	RenderWindow* window;
 	Clock* clock;
 	Entity* player;
+	Entity* enemy;
 	Map* map;
 	Camera* camera;
 	float time;

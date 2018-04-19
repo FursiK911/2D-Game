@@ -9,7 +9,7 @@ Entity::Entity(Image & im, float X, float Y, int W, int H, String * Name)
 	image = &im;
 	texture = new Texture();
 	sprite = new Sprite();
-	x = X; y = Y; width = W; height = H; name = Name; moveTimer = 0;
+	x = X; y = Y; width = W; height = H; file = Name; moveTimer = 0;
 	speed = 0; health = 100; dx = 0; dy = 0;
 	life = true; onGround = false; isMove = false;
 	texture->loadFromImage(*image);
@@ -20,7 +20,6 @@ Entity::Entity(Image & im, float X, float Y, int W, int H, String * Name)
 Entity::~Entity()
 {
 }
-
 
 void Entity::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ция проверки столкновений с картой
 {

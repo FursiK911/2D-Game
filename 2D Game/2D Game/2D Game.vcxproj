@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DarkGroundSpawner.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameProcess.cpp" />
     <ClCompile Include="GroundSpawner.cpp" />
@@ -160,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="DarkGroundSpawner.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameProcess.h" />
     <ClInclude Include="GroundSpawner.h" />

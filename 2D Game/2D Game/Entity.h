@@ -10,15 +10,13 @@ protected:
 	Image* image;
 	Texture* texture;
 	Sprite* sprite;
-	String* name;
+	String* file;
 public:
 	Entity();
 	Entity(Image& im, float X, float Y, int W, int H, String* Name);
 	virtual ~Entity();
 
 	virtual void update(float t, String * map) = 0;
-	virtual void control(float & t) = 0;
-
 	virtual void checkCollisionWithMap(float Dx, float Dy, String * TileMap);
 
 	Image getImage();
