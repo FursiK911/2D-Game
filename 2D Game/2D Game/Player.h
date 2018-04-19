@@ -1,15 +1,12 @@
 #pragma once
 #include "SFML\Graphics.hpp"
+#include "Entity.h"
 using namespace sf;
 
-class Player
+class Player : public Entity
 {
 private:
-	float x, y, weight, height, dx, dy, currentFrame, speed;
 	String* file;
-	Image* image;
-	Texture* texture;
-	Sprite* sprite;
 	int directionMove;
 	bool attack, combo, onGround;
 public:
@@ -17,37 +14,10 @@ public:
 	~Player();
 
 	void update(float t, String * map);
-
 	void control(float & t);
+	void checkCollisionWithMap(float Dx, float Dy, String* TileMap);
 
-	enum { left, right, up, down, jump, stay } state;//добавляем тип перечисления - состояние объекта
 
-	void checkCollisionWithMap(float Dx, float Dy, String * TileMap);
-
-	Image getImage();
-	Texture getTexture();
-	Sprite getSprite();
-	void setImage(Image& i);
-	void setTexture(Texture& t);
-	void setSprite(Sprite& s);
-
-	float getCoordinateX();
-	void setCoordinateX(float px);
-	float getDX();
-	void setDX(float pdx);
-
-	float getCoordinateY();
-	void setCoordinateY(float py);
-	float getDY();
-	void setDY(float pdy);
-
-	float getCurrentFrame();
-	void setCurrentFrame(float c);
-
-	float getSpeed();
-	void setSpeed(float s);
-
-	bool getOnGround();
-	void setOnGround(bool ongroud);
+	enum { left, right, up, down, jump, stay } state;
 };
 

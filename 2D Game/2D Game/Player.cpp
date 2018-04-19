@@ -11,7 +11,7 @@ Player::Player(String f, float PositionX, float PositionY, float w, float h)
 	dx = 0;
 	dy = 0;
 	state = stay;
-	weight = w;
+	width = w;
 	height = h;
 	currentFrame = 0;
 	speed = 0.1;
@@ -57,7 +57,7 @@ void Player::update(float t, String* map)
 	checkCollisionWithMap(dx, 0, map);//обрабатываем столкновение по Х
 	y += dy*t;
 	checkCollisionWithMap(0, dy, map);//обрабатываем столкновение по Y
-	sprite->setPosition(x + weight / 2, y + height / 2); //задаем позицию спрайта в место его центра
+	sprite->setPosition(x + width / 2, y + height / 2); //задаем позицию спрайта в место его центра
 	dy = dy + 0.00015*t; //Добавляем гравитацию
 	state = stay;
 }
@@ -120,7 +120,7 @@ void Player::control(float& t)
 void Player::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ция проверки столкновений с картой
 {
 	for (int i = y / 32; i < (y + height) / 32; i++)
-		for (int j = x / 32; j<(x + weight) / 32; j++)
+		for (int j = x / 32; j<(x + width) / 32; j++)
 		{
 			if (TileMap[i][j] == '0')
 			{
@@ -141,108 +141,8 @@ void Player::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ция п
 					}
 				}
 				if (Dy<0) { y = i * 32 + 32;  dy = 0; }
-				if (Dx>0) { x = j * 32 - weight; }
+				if (Dx>0) { x = j * 32 - width; }
 				if (Dx<0) { x = j * 32 + 32; }
 			}
 		}
-}
-
-Image Player::getImage()
-{
-	return *image;
-}
-
-Texture Player::getTexture()
-{
-	return *texture;
-}
-
-Sprite Player::getSprite()
-{
-	return *sprite;
-}
-
-void Player::setImage(Image& i)
-{
-	image = &i;
-}
-
-void Player::setTexture(Texture& t)
-{
-	texture = &t;
-}
-
-void Player::setSprite(Sprite& s)
-{
-	sprite = &s;
-}
-
-float Player::getCoordinateX()
-{
-	return x;
-}
-
-void Player::setCoordinateX(float px)
-{
-	x = px;
-}
-
-float Player::getDX()
-{
-	return dx;
-}
-
-void Player::setDX(float pdx)
-{
-	dx = pdx;
-}
-
-float Player::getCoordinateY()
-{
-	return y;
-}
-
-void Player::setCoordinateY(float py)
-{
-	y = py;
-}
-
-float Player::getDY()
-{
-	return dy;
-}
-
-void Player::setDY(float pdy)
-{
-	dy = pdy;
-}
-
-float Player::getCurrentFrame()
-{
-	return currentFrame;
-}
-
-void Player::setCurrentFrame(float c)
-{
-	currentFrame = c;
-}
-
-float Player::getSpeed()
-{
-	return speed;
-}
-
-void Player::setSpeed(float s)
-{
-	speed = s;
-}
-
-bool Player::getOnGround()
-{
-	return onGround;
-}
-
-void Player::setOnGround(bool onground)
-{
-	onGround = onground;
 }

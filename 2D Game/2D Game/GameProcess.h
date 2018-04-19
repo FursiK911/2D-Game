@@ -1,5 +1,6 @@
 #pragma once
 #include "SFML\Graphics.hpp"
+#include "Entity.h"
 #include "Player.h"
 #include "Map.h"
 #include "Camera.h"
@@ -11,7 +12,7 @@ class GameProcess
 private:
 	RenderWindow* window;
 	Clock* clock;
-	Player* player;
+	Entity* player;
 	Map* map;
 	Camera* camera;
 	float time;
