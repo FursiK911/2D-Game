@@ -10,16 +10,17 @@ private:
 	Image* image;
 	Texture* texture;
 	Sprite* sprite;
-	bool attack, combo, onGround, isMove;
+	int directionMove;
+	bool attack, combo, onGround;
 public:
 	Player(String f, float x, float y, float w, float h);
 	~Player();
 
 	void update(float t, String * map);
 
-	enum { left, right, up, down, jump, stay } state;//добавляем тип перечисления - состояние объекта
+	void control(float & t);
 
-	void control();
+	enum { left, right, up, down, jump, stay } state;//добавляем тип перечисления - состояние объекта
 
 	void checkCollisionWithMap(float Dx, float Dy, String * TileMap);
 
