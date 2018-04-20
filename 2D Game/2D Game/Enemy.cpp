@@ -24,7 +24,7 @@ Enemy::Enemy(String f, float PositionX, float PositionY, float w, float h)
 	sprite->setTexture(*texture);
 	sprite->setTextureRect(IntRect(0, 0, w, h)); //IntRect - приведение типов
 	sprite->setPosition(PositionX, PositionY);
-	sprite->setOrigin(w / 2, h / 2 - 5 );
+	sprite->setOrigin(w / 2, h / 2 + 5 );
 }
 
 Enemy::~Enemy()
@@ -34,14 +34,14 @@ Enemy::~Enemy()
 void Enemy::update(float t, String * map)
 {
 	//moveTimer += time;if (moveTimer>3000){ dx *= -1; moveTimer = 0; }//меняет направление примерно каждые 3 сек
-	if (dx > 0)
+	if (life == true && dx > 0)
 	{
 		currentFrame -= 0.001 * t; // скорость анимации
 		if (currentFrame < 0) currentFrame += 6;
 		sprite->setScale(1, 1); //отразим по горизонтали
 		sprite->setTextureRect(IntRect(60 * int(currentFrame), 0, 60, 70));
 	}
-	else
+	else if (life == true && dx < 0)
 	{
 		currentFrame -= 0.001 * t; // скорость анимации
 		if (currentFrame < 0) currentFrame += 6;
@@ -56,7 +56,21 @@ void Enemy::update(float t, String * map)
 	dy = dy + 0.00015*t; //Добавляем гравитацию
 	if (health <= 0) 
 	{ 
-		life = false; 
+		if (life == true)
+			currentFrame = 3;
+
+			life = false;
+			if ((int)currentFrame > 0)
+				currentFrame -= 0.001 * t; // скорость анимации
+			else
+				currentFrame = 0;
+
+			if (dx > 0)
+				sprite->setScale(1, 1); //отразим по горизонтали
+			else
+				sprite->setScale(-1, 1);
+
+		sprite->setTextureRect(IntRect(60 * int(currentFrame), 80, 60, 82));
 	}
 }
 

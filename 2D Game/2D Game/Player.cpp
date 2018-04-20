@@ -17,6 +17,7 @@ Player::Player(String f, float PositionX, float PositionY, float w, float h)
 	speed = 0.1;
 	life = true;
 	health = 100;
+	directionMove = right;
 	attack = false;
 	onGround = false;
 	directionMove = 0;
@@ -99,12 +100,12 @@ void Player::control(float& t)
 	if ((Keyboard::isKeyPressed(Keyboard::Up)) && (onGround))
 	{
 		combo = false;
-		if (state == left)
+		if (directionMove == left)
 		{
 			sprite->setScale(-1, 1); //отразим по горизонтали
 			sprite->setTextureRect(IntRect(55, 225, 55, 85));
 		}
-		else if (state == right)
+		else if (directionMove == right)
 		{
 			sprite->setScale(1, 1); //отразим по горизонтали
 			sprite->setTextureRect(IntRect(55, 225, 55, 85));
@@ -120,20 +121,41 @@ void Player::control(float& t)
 		speed = 0.1;
 	}
 
-	if (Keyboard::isKeyPressed(Keyboard::Space))
+	if (Keyboard::isKeyPressed(Keyboard::Space) && onGround) // если клавиша зажата, то проводится комбинация
 	{
 		if (!combo)
+		{
 			currentFrame = 0;
+			oldCurrentFrame = 0;
+		}
+
 		combo = true;
 		if (combo)
 		{
 			currentFrame += 0.0015*t;
+			oldCurrentFrame = currentFrame;
 		}
 		if (currentFrame > 4)
 		{
 			currentFrame -= 4;
 		}
 		sprite->setTextureRect(IntRect(60 * int(currentFrame), 80, 60, 75));
+	}
+	else if (currentFrame == oldCurrentFrame) // в ином случае комбинация прерывается
+	{
+		combo = false;
+		if (directionMove == right)
+		{
+			currentFrame = 2; // скорость анимации
+			sprite->setScale(1, 1); //отразим по горизонтали
+			sprite->setTextureRect(IntRect(50 * int(currentFrame), 0, 50, 75));
+		}
+		else
+		{
+			currentFrame = 2;
+			sprite->setScale(-1, 1); //отразим по горизонтали
+			sprite->setTextureRect(IntRect(50 * int(currentFrame), 0, 50, 75));
+		}
 	}
 }
 
@@ -169,37 +191,39 @@ void Player::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ция п
 
 void Player::InteractionWithEntity(std::list<Entity*> &entities, std::list<Entity*>::iterator it)
 {
-
-	for (it = entities.begin(); it != entities.end();)
-	{
-		Entity *b = *it;
-		if (b->getLife() == false)
-		{
-			it = entities.erase(it);
-			delete b;
-		}
-		else it++;
-	}
+	//for (it = entities.begin(); it != entities.end();)  //удалять или не удалять оглушенных врагов добавить возможность редактирования этой возможности в Setting
+	//{
+	//	Entity *b = *it;
+	//	if (b->getLife() == false && (int)b->getCurrentFrame() == 0)
+	//	{
+	//		it = entities.erase(it);
+	//		delete b;
+	//	}
+	//	else it++;
+	//}
 
 	for (it = entities.begin(); it != entities.end(); it++)
 	{
 		if ((*it)->getRect().intersects(getRect()))//если прямоугольник спрайта объекта пересекается с игроком
 		{
-			if ((combo == true && (int)currentFrame % 2 != 0))
+			if (combo == true && (int)currentFrame % 2 != 0 && (*it)->getLife())
 			{
-				(*it)->setCoordinateX((*it)->getCoordinateX() - 4);
-				(*it)->setDY((*it)->getDY() - 0.12);
+
+				if(directionMove == left)
+					(*it)->setCoordinateX((*it)->getCoordinateX() - 10);
+				else
+					(*it)->setCoordinateX((*it)->getCoordinateX() + 10);
+				(*it)->setDX(0);
 				(*it)->setHealth(0);
 			}
-			else
-			{
-				//иначе враг что-то сделал
-			}
+			//if (dx < 0) 
+			//{ 
+			//	x = (*it)->getCoordinateX() + (*it)->getWidth();
+			//}//если столкнулись с врагом и игрок идет влево то выталкиваем игрока
+			//if (dx > 0) 
+			//{ 
+			//	x = (*it)->getCoordinateX() - width; 
+			//}//если столкнулись с врагом и игрок идет вправо то выталкиваем игрока)
 		}
 	}
-}
-
-bool Player::getCombo()
-{
-	return combo;
 }

@@ -111,6 +111,16 @@ void Entity::setDY(float pdy)
 	dy = pdy;
 }
 
+float Entity::getWidth()
+{
+	return width;
+}
+
+float Entity::getHeight()
+{
+	return height;
+}
+
 FloatRect Entity::getRect()
 {
 	return FloatRect(x, y, width, height);

@@ -36,6 +36,9 @@ public:
 	float getDY();
 	void setDY(float pdy);
 
+	float getWidth();
+	float getHeight();
+
 	FloatRect getRect();
 
 	float getCurrentFrame();

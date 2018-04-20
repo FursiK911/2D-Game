@@ -1,0 +1,20 @@
+﻿  Settings.cpp
+  Player.cpp
+d:\учеба\c++\курсовая\2d game\2d game\player.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  Map.cpp
+d:\учеба\c++\курсовая\2d game\2d game\map.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  main.cpp
+d:\учеба\c++\курсовая\2d game\2d game\main.cpp(1): fatal error C1083: Не удается открыть файл включение: SFML/Graphics.hpp: No such file or directory
+  GroundSpawner.cpp
+d:\учеба\c++\курсовая\2d game\2d game\groundspawner.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  GameProcess.cpp
+d:\учеба\c++\курсовая\2d game\2d game\gameprocess.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  Entity.cpp
+d:\учеба\c++\курсовая\2d game\2d game\entity.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  Enemy.cpp
+d:\учеба\c++\курсовая\2d game\2d game\entity.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  DarkGroundSpawner.cpp
+d:\учеба\c++\курсовая\2d game\2d game\darkgroundspawner.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  Camera.cpp
+d:\учеба\c++\курсовая\2d game\2d game\camera.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  Создание кода...

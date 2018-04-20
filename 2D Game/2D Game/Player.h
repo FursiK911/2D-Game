@@ -7,6 +7,7 @@ using namespace sf;
 class Player : public Entity
 {
 private:
+	float oldCurrentFrame;
 	int directionMove;
 	bool attack, combo, onGround;
 public:
@@ -19,8 +20,6 @@ public:
 	void InteractionWithEntity(std::list<Entity*> &entities, std::list<Entity*>::iterator it);
 
 	enum { left, right, up, down, jump, stay } state;
-
-	bool getCombo();
 };
 
 

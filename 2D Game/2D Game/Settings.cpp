@@ -19,6 +19,16 @@ void Settings::setSpeedGame(int speed)
 	speedGame = speed;
 }
 
+bool Settings::getStun()
+{
+	return drawStunnedEnemies;
+}
+
+void Settings::setStun(bool stun)
+{
+	drawStunnedEnemies = stun;
+}
+
 Settings::Settings()
 {
 }
