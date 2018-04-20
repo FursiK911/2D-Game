@@ -111,6 +111,11 @@ void Entity::setDY(float pdy)
 	dy = pdy;
 }
 
+FloatRect Entity::getRect()
+{
+	return FloatRect(x, y, width, height);
+}
+
 float Entity::getCurrentFrame()
 {
 	return currentFrame;
@@ -139,4 +144,24 @@ bool Entity::getOnGround()
 void Entity::setOnGround(bool onground)
 {
 	onGround = onground;
+}
+
+int Entity::getHealth()
+{
+	return health;
+}
+
+void Entity::setHealth(int h)
+{
+	health = h;
+}
+
+bool Entity::getLife()
+{
+	return life;
+}
+
+void Entity::setLife(bool l)
+{
+	life = l;
 }

@@ -15,6 +15,8 @@ Player::Player(String f, float PositionX, float PositionY, float w, float h)
 	height = h;
 	currentFrame = 0;
 	speed = 0.1;
+	life = true;
+	health = 100;
 	attack = false;
 	onGround = false;
 	directionMove = 0;
@@ -36,22 +38,22 @@ void Player::update(float t, String* map)
 	switch (state)
 	{
 	case right:
-		dx = speed; 
+		dx = speed;
 		break;
 	case left:
-		dx = -speed; 
+		dx = -speed;
 		break;
-	case up: 
+	case up:
 		break;
-	case down: 
-		dx = 0; 
+	case down:
+		dx = 0;
 		break;
-	case jump: 
+	case jump:
 		break;
 	case stay:
 		dx = 0;
 		speed = 0;
-		break;		
+		break;
 	}
 	x += dx*t;
 	checkCollisionWithMap(dx, 0, map);//обрабатываем столкновение по ’
@@ -64,6 +66,7 @@ void Player::update(float t, String* map)
 
 void Player::control(float& t) 
 {
+	state = stay;
 	if (Keyboard::isKeyPressed(Keyboard::Left)) 
 	{
 		state = left;
@@ -95,6 +98,7 @@ void Player::control(float& t)
 
 	if ((Keyboard::isKeyPressed(Keyboard::Up)) && (onGround))
 	{
+		combo = false;
 		if (state == left)
 		{
 			sprite->setScale(-1, 1); //отразим по горизонтали
@@ -115,6 +119,22 @@ void Player::control(float& t)
 		state = down;
 		speed = 0.1;
 	}
+
+	if (Keyboard::isKeyPressed(Keyboard::Space))
+	{
+		if (!combo)
+			currentFrame = 0;
+		combo = true;
+		if (combo)
+		{
+			currentFrame += 0.0015*t;
+		}
+		if (currentFrame > 4)
+		{
+			currentFrame -= 4;
+		}
+		sprite->setTextureRect(IntRect(60 * int(currentFrame), 80, 60, 75));
+	}
 }
 
 void Player::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ци€ проверки столкновений с картой
@@ -129,12 +149,12 @@ void Player::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ци€ п
 					y = i * 32 - height;
 					dy = 0;
 					onGround = true;
-					if (directionMove == left)
+					if (directionMove == left && !combo)
 					{
 						sprite->setScale(-1, 1);
 						sprite->setTextureRect(IntRect(50 * int(currentFrame), 0, 50, 75));
 					}
-					else
+					else if(directionMove == right && !combo)
 					{
 						sprite->setScale(1, 1);
 						sprite->setTextureRect(IntRect(50 * int(currentFrame), 0, 50, 75));
@@ -145,4 +165,41 @@ void Player::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ци€ п
 				if (Dx<0) { x = j * 32 + 32; }
 			}
 		}
+}
+
+void Player::InteractionWithEntity(std::list<Entity*> &entities, std::list<Entity*>::iterator it)
+{
+
+	for (it = entities.begin(); it != entities.end();)
+	{
+		Entity *b = *it;
+		if (b->getLife() == false)
+		{
+			it = entities.erase(it);
+			delete b;
+		}
+		else it++;
+	}
+
+	for (it = entities.begin(); it != entities.end(); it++)
+	{
+		if ((*it)->getRect().intersects(getRect()))//если пр€моугольник спрайта объекта пересекаетс€ с игроком
+		{
+			if ((combo == true && (int)currentFrame % 2 != 0))
+			{
+				(*it)->setCoordinateX((*it)->getCoordinateX() - 4);
+				(*it)->setDY((*it)->getDY() - 0.12);
+				(*it)->setHealth(0);
+			}
+			else
+			{
+				//иначе враг что-то сделал
+			}
+		}
+	}
+}
+
+bool Player::getCombo()
+{
+	return combo;
 }

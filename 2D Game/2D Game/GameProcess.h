@@ -5,6 +5,8 @@
 #include "Enemy.h"
 #include "Map.h"
 #include "Camera.h"
+#include "Settings.h"
+#include <list>
 using namespace sf;
 
 
@@ -13,10 +15,12 @@ class GameProcess
 private:
 	RenderWindow* window;
 	Clock* clock;
-	Entity* player;
-	Entity* enemy;
+	Player* player;
+    std::list<Entity*> entities;
+	std::list<Entity*>::iterator it;
 	Map* map;
 	Camera* camera;
+	//Settings* settings;
 	float time;
 public:
 	GameProcess();

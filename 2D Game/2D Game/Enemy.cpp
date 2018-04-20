@@ -14,6 +14,8 @@ Enemy::Enemy(String f, float PositionX, float PositionY, float w, float h)
 	dy = 0;
 	width = w;
 	height = h;
+	health = 100;
+	life = true;
 	currentFrame = 0;
 	speed = 0.1;
 	onGround = false;
@@ -22,7 +24,7 @@ Enemy::Enemy(String f, float PositionX, float PositionY, float w, float h)
 	sprite->setTexture(*texture);
 	sprite->setTextureRect(IntRect(0, 0, w, h)); //IntRect - приведение типов
 	sprite->setPosition(PositionX, PositionY);
-	sprite->setOrigin(w / 2, h / 2 - 5);
+	sprite->setOrigin(w / 2, h / 2 - 5 );
 }
 
 Enemy::~Enemy()
@@ -46,10 +48,16 @@ void Enemy::update(float t, String * map)
 		sprite->setScale(-1, 1); //отразим по горизонтали
 		sprite->setTextureRect(IntRect(60 * int(currentFrame), 0, 60, 70));
 	}
+	x += dx*t;
 	checkCollisionWithMap(dx, 0, map);//обрабатываем столкновение по Х
-	x += dx * t;
+	y += dy*t;
+	checkCollisionWithMap(0, dy, map);//обрабатываем столкновение по Y
 	sprite->setPosition(x + width / 2, y + height / 2); //задаем позицию спрайта в место его центра
-	if (health <= 0) { life = false; }
+	dy = dy + 0.00015*t; //Добавляем гравитацию
+	if (health <= 0) 
+	{ 
+		life = false; 
+	}
 }
 
 void Enemy::checkCollisionWithMap(float Dx, float Dy, String * TileMap)
@@ -59,8 +67,8 @@ void Enemy::checkCollisionWithMap(float Dx, float Dy, String * TileMap)
 		{
 			if (TileMap[i][j] == '0')
 			{
-				if (Dy>0) { y = i * 32 - height; }//по Y вниз=>идем в пол(стоим на месте) или падаем. В этот момент надо вытолкнуть персонажа и поставить его на землю, при этом говорим что мы на земле тем самым снова можем прыгать
-				if (Dy<0) { y = i * 32 + 32; }
+				if (Dy>0) { y = i * 32 - height; dy = 0;}//по Y вниз=>идем в пол(стоим на месте) или падаем. В этот момент надо вытолкнуть персонажа и поставить его на землю, при этом говорим что мы на земле тем самым снова можем прыгать
+				if (Dy<0) { y = i * 32 + 32; dy = 0;}
 				if (Dx>0) { x = j * 32 - width; dx = -0.05; sprite->scale(-1, 1); }
 				if (Dx<0) { x = j * 32 + 32; dx = 0.05; sprite->scale(-1, 1); }
 			}

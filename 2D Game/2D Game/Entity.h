@@ -36,6 +36,8 @@ public:
 	float getDY();
 	void setDY(float pdy);
 
+	FloatRect getRect();
+
 	float getCurrentFrame();
 	void setCurrentFrame(float c);
 
@@ -44,5 +46,10 @@ public:
 
 	bool getOnGround();
 	void setOnGround(bool ongroud);
+
+	int getHealth();
+	void setHealth(int h);
+	bool getLife();
+	void setLife(bool l);
 };
 
