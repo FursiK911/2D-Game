@@ -10,7 +10,7 @@ private:
 	int speedGame = 200;
 	bool drawStunnedEnemies = false;
 public:
-	static Settings & getInstance();
+	static Settings* getInstance();
 	int getSpeedGame() const;
 	void setSpeedGame(int speed);
 	bool getStun();

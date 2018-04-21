@@ -56,6 +56,24 @@ void Player::update(float t, String* map)
 		speed = 0;
 		break;
 	}
+
+	if (kickUp) 
+	{ 
+		dy = -0.1; kickUp = false; 
+	}
+	if (kickR) 
+	{
+		dx = 0.1;
+	}
+	if (kickL) 
+	{
+		dx = -0.1;
+	}
+	if (onGround) 
+	{ 
+		kickR = false; kickL = false; 
+	}
+
 	x += dx*t;
 	checkCollisionWithMap(dx, 0, map);//обрабатываем столкновение по Х
 	y += dy*t;
@@ -162,7 +180,7 @@ void Player::control(float& t)
 void Player::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ция проверки столкновений с картой
 {
 	for (int i = y / 32; i < (y + height) / 32; i++)
-		for (int j = x / 32; j<(x + width) / 32; j++)
+		for (int j = x / 32; j < (x + width) / 32; j++)
 		{
 			if (TileMap[i][j] == '0')
 			{
@@ -176,31 +194,43 @@ void Player::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ция п
 						sprite->setScale(-1, 1);
 						sprite->setTextureRect(IntRect(50 * int(currentFrame), 0, 50, 75));
 					}
-					else if(directionMove == right && !combo)
+					else if (directionMove == right && !combo)
 					{
 						sprite->setScale(1, 1);
 						sprite->setTextureRect(IntRect(50 * int(currentFrame), 0, 50, 75));
 					}
 				}
-				if (Dy<0) { y = i * 32 + 32;  dy = 0; }
-				if (Dx>0) { x = j * 32 - width; }
-				if (Dx<0) { x = j * 32 + 32; }
+				if (Dy < 0)
+				{
+					y = i * 32 + 32;  dy = 0;
+				}
+				if (Dx > 0)
+				{
+					x = j * 32 - width;
+				}
+				if (Dx < 0)
+				{
+					x = j * 32 + 32;
+				}
 			}
 		}
 }
 
 void Player::InteractionWithEntity(std::list<Entity*> &entities, std::list<Entity*>::iterator it)
 {
-	//for (it = entities.begin(); it != entities.end();)  //удалять или не удалять оглушенных врагов добавить возможность редактирования этой возможности в Setting
-	//{
-	//	Entity *b = *it;
-	//	if (b->getLife() == false && (int)b->getCurrentFrame() == 0)
-	//	{
-	//		it = entities.erase(it);
-	//		delete b;
-	//	}
-	//	else it++;
-	//}
+	if (settings->getInstance()->getStun())
+	{
+		for (it = entities.begin(); it != entities.end();)
+		{
+			Entity *b = *it;
+			if (b->getLife() == false && (int)b->getCurrentFrame() == 0)
+			{
+				it = entities.erase(it);
+				delete b;
+			}
+			else it++;
+		}
+	}
 
 	for (it = entities.begin(); it != entities.end(); it++)
 	{
@@ -216,14 +246,19 @@ void Player::InteractionWithEntity(std::list<Entity*> &entities, std::list<Entit
 				(*it)->setDX(0);
 				(*it)->setHealth(0);
 			}
-			//if (dx < 0) 
-			//{ 
-			//	x = (*it)->getCoordinateX() + (*it)->getWidth();
-			//}//если столкнулись с врагом и игрок идет влево то выталкиваем игрока
-			//if (dx > 0) 
-			//{ 
-			//	x = (*it)->getCoordinateX() - width; 
-			//}//если столкнулись с врагом и игрок идет вправо то выталкиваем игрока)
+
+			if ((*it)->getDX() > 0) 
+			{
+				kickR = true; kickUp = true;
+				onGround = false;
+				health -= 5;
+			}
+			if ((*it)->getDX() < 0) 
+			{
+				kickL = true; kickUp = true;
+				onGround = false;
+				health -= 5;
+			}
 		}
 	}
 }

@@ -20,7 +20,7 @@ private:
 	std::list<Entity*>::iterator it;
 	Map* map;
 	Camera* camera;
-	//Settings* settings;
+	Settings* settings;
 	float time;
 public:
 	GameProcess();

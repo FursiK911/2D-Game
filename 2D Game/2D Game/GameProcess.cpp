@@ -21,7 +21,7 @@ GameProcess::GameProcess()
 
 GameProcess::~GameProcess()
 {
-	delete window, clock, player, map, camera;
+	delete window, clock, player, map, camera, settings;
 }
 
 void GameProcess::start()
@@ -30,7 +30,7 @@ void GameProcess::start()
 	{
 		time = clock->getElapsedTime().asMicroseconds();
 		clock->restart();
-		time /= 200; //скорость игры
+		time /= settings->getInstance()->getSpeedGame();//скорость игры
 
 		sf::Event event;
 		while (window->pollEvent(event))
