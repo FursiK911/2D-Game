@@ -77,5 +77,8 @@
     <ClInclude Include="Scene1.h">
       <Filter>Map</Filter>
     </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

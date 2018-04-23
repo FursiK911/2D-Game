@@ -3,6 +3,8 @@
 class Enemy :
 	public Entity
 {
+private:
+	double directionMove;
 public:
 	Enemy(String f, float PositionX, float PositionY, float w, float h);
 	~Enemy();

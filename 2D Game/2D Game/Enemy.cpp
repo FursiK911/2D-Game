@@ -34,19 +34,19 @@ Enemy::~Enemy()
 void Enemy::update(float t, String * map)
 {
 	//moveTimer += time;if (moveTimer>3000){ dx *= -1; moveTimer = 0; }//меняет направление примерно каждые 3 сек
-	if (life == true && dx > 0)
-	{
-		currentFrame -= 0.001 * t; // скорость анимации
-		if (currentFrame < 0) currentFrame += 6;
-		sprite->setScale(1, 1); //отразим по горизонтали
-		sprite->setTextureRect(IntRect(60 * int(currentFrame), 0, 60, 70));
-	}
-	else if (life == true && dx < 0)
-	{
-		currentFrame -= 0.001 * t; // скорость анимации
-		if (currentFrame < 0) currentFrame += 6;
-		sprite->setScale(-1, 1); //отразим по горизонтали
-		sprite->setTextureRect(IntRect(60 * int(currentFrame), 0, 60, 70));
+		if (life == true && dx > 0)
+		{
+			currentFrame -= 0.001 * t; // скорость анимации
+			if (currentFrame < 0) currentFrame += 6;
+			sprite->setScale(1, 1); //отразим по горизонтали
+			sprite->setTextureRect(IntRect(60 * int(currentFrame), 0, 60, 70));
+		}
+		else if (life == true && dx < 0)
+		{
+			currentFrame -= 0.001 * t; // скорость анимации
+			if (currentFrame < 0) currentFrame += 6;
+			sprite->setScale(-1, 1); //отразим по горизонтали
+			sprite->setTextureRect(IntRect(60 * int(currentFrame), 0, 60, 70));
 	}
 	x += dx*t;
 	checkCollisionWithMap(dx, 0, map);//обрабатываем столкновение по Х

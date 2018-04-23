@@ -38,12 +38,12 @@ void GameProcess::start()
 			if (event.type == sf::Event::Closed)
 				window->close();
 		}
+		player->InteractionWithEntity(entities, it);
 		player->update(time, TileMap);
 		for (it = entities.begin(); it != entities.end(); it++)
 		{ 
 			(*it)->update(time, TileMap); 
 		}
-		player->InteractionWithEntity(entities, it);
 		camera->setCameraPosition(player->getCoordinateX() + 100, player->getCoordinateY(), LEFT_BORDER, RIGHT_BORDER, UPPER_BORDER, LOWER_BORDER);
 		window->clear();
 		map->buildMap(*window, TileMap, HEIGHT_MAP, WIDTH_MAP);
