@@ -10,6 +10,9 @@
     <Filter Include="GameProcess">
       <UniqueIdentifier>{4748d4b6-590f-484c-a2fc-e5430b616b5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameInterface">
+      <UniqueIdentifier>{a390c68c-b685-421c-a420-94790bb34ac8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp">
@@ -41,6 +44,12 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>GameProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="GameInterface.cpp">
+      <Filter>GameInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="LifeBar.cpp">
+      <Filter>GameInterface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +88,12 @@
     </ClInclude>
     <ClInclude Include="Enum.h">
       <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeBar.h">
+      <Filter>GameInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInterface.h">
+      <Filter>GameInterface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -19,6 +19,7 @@ Entity::Entity(Image & im, float X, float Y, int W, int H, String * Name)
 
 Entity::~Entity()
 {
+	delete image, texture, sprite, file;
 }
 
 void Entity::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ция проверки столкновений с картой

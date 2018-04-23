@@ -1,33 +1,3 @@
-﻿  Player.cpp
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(39): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(40): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(42): warning C4305: =: усечение из "double" к "float"
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(50): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(96): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(106): warning C4305: =: усечение из "double" к "float"
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(111): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(121): warning C4305: =: усечение из "double" к "float"
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(126): warning C4244: -=: преобразование "double" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(147): warning C4305: =: усечение из "double" к "float"
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(154): warning C4305: =: усечение из "double" к "float"
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(168): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(199): warning C4305: =: усечение из "double" к "float"
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(203): warning C4305: =: усечение из "double" к "float"
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(205): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(211): warning C4305: =: усечение из "double" к "float"
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(213): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(240): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(241): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(247): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(263): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(267): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\player.cpp(271): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-  Создание кода...
-  Компиляция...
-  GameProcess.cpp
-d:\учеба\c++\курсовая\2d game\2d game\gameprocess.cpp(15): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-d:\учеба\c++\курсовая\2d game\2d game\gameprocess.cpp(31): warning C4244: =: преобразование "sf::Int64" в "float", возможна потеря данных
-  Создание кода...
-  Пропуск... (изменения не обнаружены)
-  main.cpp
+﻿  LifeBar.cpp
+d:\учеба\c++\курсовая\2d game\2d game\lifebar.cpp(27): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   2D Game.vcxproj -> D:\Учеба\C++\Курсовая\2D Game\Debug\2D Game.exe

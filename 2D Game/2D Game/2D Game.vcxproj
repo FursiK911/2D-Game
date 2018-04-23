@@ -152,8 +152,10 @@
     <ClCompile Include="DarkGroundSpawner.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="GameInterface.cpp" />
     <ClCompile Include="GameProcess.cpp" />
     <ClCompile Include="GroundSpawner.cpp" />
+    <ClCompile Include="LifeBar.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -165,9 +167,11 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Enum.h" />
+    <ClInclude Include="GameInterface.h" />
     <ClInclude Include="GameProcess.h" />
     <ClInclude Include="GroundSpawner.h" />
     <ClInclude Include="ISpawner.h" />
+    <ClInclude Include="LifeBar.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene1.h" />

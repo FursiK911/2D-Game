@@ -17,11 +17,12 @@ GameProcess::GameProcess()
 	}
 	map = new Map();
 	camera = new Camera();
+	lifeBar = new LifeBar();
 }
 
 GameProcess::~GameProcess()
 {
-	delete window, clock, player, map, camera, settings;
+	delete window, clock, player, map, camera, settings, lifeBar;
 }
 
 void GameProcess::start()
@@ -38,8 +39,10 @@ void GameProcess::start()
 			if (event.type == sf::Event::Closed)
 				window->close();
 		}
+
 		player->InteractionWithEntity(entities, it);
 		player->update(time, TileMap);
+		lifeBar->update(player->getHealth());
 		for (it = entities.begin(); it != entities.end(); it++)
 		{ 
 			(*it)->update(time, TileMap); 
@@ -53,6 +56,7 @@ void GameProcess::start()
 			window->draw((*it)->getSprite());
 		}
 		window->draw(player->getSprite());
+		lifeBar->draw(window, camera);
 		window->display();
 	}
 }

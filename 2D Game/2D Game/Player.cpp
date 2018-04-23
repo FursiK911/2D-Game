@@ -54,6 +54,7 @@ Player::Player(String f, float PositionX, float PositionY, float w, float h)
 
 Player::~Player()
 {
+	delete settings, hitBuffer, attack1Buffer, attack2Buffer, jumpBuffer, walkBuffer, hit, attack1, attack2, jump, walk;
 }
 
 void Player::update(float t, String* map)
@@ -303,7 +304,7 @@ void Player::InteractionWithEntity(std::list<Entity*> &entities, std::list<Entit
 				(*it)->setHealth(0);
 			}
 
-			else  //if (state != Status::attacked)//Атака врагов по игроку
+			else if (state != Status::attacked)//Атака врагов по игроку
 			{
 				if ((*it)->getDX() > 0)
 				{

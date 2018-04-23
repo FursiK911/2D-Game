@@ -6,6 +6,8 @@
 #include "Map.h"
 #include "Camera.h"
 #include "Settings.h"
+#include "GameInterface.h"
+#include "LifeBar.h"
 #include <list>
 using namespace sf;
 
@@ -21,6 +23,7 @@ private:
 	Map* map;
 	Camera* camera;
 	Settings* settings;
+	LifeBar* lifeBar;
 	float time;
 public:
 	GameProcess();
