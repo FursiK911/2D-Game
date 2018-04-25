@@ -11,7 +11,7 @@ protected:
 public:
 	GameInterface();
 	virtual ~GameInterface();
-	virtual void update(int k) = 0;
+	virtual void update() {};
 	virtual void draw(RenderWindow *window,Camera* camera) = 0;
 
 	Sprite getSprite();

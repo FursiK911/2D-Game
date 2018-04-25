@@ -19,9 +19,9 @@ public:
 	virtual void update(float t, String * map) = 0;
 	virtual void checkCollisionWithMap(float Dx, float Dy, String * TileMap);
 
-	Image getImage();
-	Texture getTexture();
-	Sprite getSprite();
+	Image& getImage();
+	Texture& getTexture();
+	Sprite& getSprite();
 	void setImage(Image& i);
 	void setTexture(Texture& t);
 	void setSprite(Sprite& s);

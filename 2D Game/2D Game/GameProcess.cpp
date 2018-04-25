@@ -7,26 +7,30 @@ using namespace sf;
 GameProcess::GameProcess()
 {
 	window = new RenderWindow(sf::VideoMode(800, 600), "2D Game");
+	menu = new MainMenu();
 	clock = new Clock();
-	player = new Player("hero.png", 250, 500, 50, 75);
-	int Xc = 100, Yc = 300;
-	for (int i = 0; i < 5; i++)
+	player = new Player("hero.png", 400, 150, 50, 75);
+	sharpoviy = new NPC();
+	sharpoviy->setCoordinateX(300); sharpoviy->setCoordinateY(160);
+	sharpoviy->getSprite().setPosition(sharpoviy->getCoordinateX(), sharpoviy->getCoordinateY());
+	for (int i = 1; i < 5; i++)
 	{
-		entities.push_back(new Enemy("enemy.png", Xc, Yc, 60, 60));
-		Xc += 100;
+		entities.push_back(new Enemy("enemy.png", XEnemies[i], YEnemies[i], 60, 60));
 	}
 	map = new Map();
 	camera = new Camera();
 	lifeBar = new LifeBar();
+	iconPlayer = new IconPlayer();
 }
 
 GameProcess::~GameProcess()
 {
-	delete window, clock, player, map, camera, settings, lifeBar;
+	delete window, clock, player, map, camera, settings, lifeBar, iconPlayer, menu;
 }
 
 void GameProcess::start()
 {
+	menu->start(window);
 	while (window->isOpen())
 	{
 		time = clock->getElapsedTime().asMicroseconds();
@@ -39,9 +43,12 @@ void GameProcess::start()
 			if (event.type == sf::Event::Closed)
 				window->close();
 		}
-
-		player->InteractionWithEntity(entities, it);
-		player->update(time, TileMap);
+		if (player->getLife())
+		{
+			player->InteractionWithEntity(entities, it, sharpoviy);
+			player->update(time, TileMap);
+		}
+		sharpoviy->update(time,TileMap);
 		lifeBar->update(player->getHealth());
 		for (it = entities.begin(); it != entities.end(); it++)
 		{ 
@@ -51,12 +58,19 @@ void GameProcess::start()
 		window->clear();
 		map->buildMap(*window, TileMap, HEIGHT_MAP, WIDTH_MAP);
 		window->setView(camera->getCamera());
+		window->draw(sharpoviy->getSprite());
 		for (it = entities.begin(); it != entities.end(); it++)
 		{
 			window->draw((*it)->getSprite());
 		}
+		if (sharpoviy->getShowDialogText())
+		{
+			window->draw(sharpoviy->getDialogCloud());
+			window->draw(sharpoviy->getText());
+		}
 		window->draw(player->getSprite());
 		lifeBar->draw(window, camera);
+		iconPlayer->draw(window, camera);
 		window->display();
 	}
 }

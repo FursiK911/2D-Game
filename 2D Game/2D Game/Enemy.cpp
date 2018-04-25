@@ -19,7 +19,7 @@ Enemy::Enemy(String f, float PositionX, float PositionY, float w, float h)
 	currentFrame = 0;
 	speed = 0.1;
 	onGround = false;
-	image->loadFromFile("images/" + *file);
+	image->loadFromFile("images/Entities/" + *file);
 	texture->loadFromImage(*image);
 	sprite->setTexture(*texture);
 	sprite->setTextureRect(IntRect(0, 0, w, h)); //IntRect - приведение типов

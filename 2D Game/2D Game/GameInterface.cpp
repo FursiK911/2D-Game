@@ -9,7 +9,6 @@ GameInterface::GameInterface()
 	sprite = new Sprite();
 }
 
-
 GameInterface::~GameInterface()
 {
 	delete image, texture, sprite;

@@ -4,7 +4,7 @@
 
 DarkGroundSpawner::DarkGroundSpawner()
 {
-	path = "images/textures.png";
+	path = "images/Map/textures.png";
 	image.loadFromFile(path);
 	texture.loadFromImage(image);
 	sprite.setTexture(texture);

@@ -42,17 +42,17 @@ void Entity::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ция п
 		}
 }
 
-Image Entity::getImage()
+Image& Entity::getImage()
 {
 	return *image;
 }
 
-Texture Entity::getTexture()
+Texture& Entity::getTexture()
 {
 	return *texture;
 }
 
-Sprite Entity::getSprite()
+Sprite& Entity::getSprite()
 {
 	return *sprite;
 }

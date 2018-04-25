@@ -11,18 +11,21 @@ Player::Player(String f, float PositionX, float PositionY, float w, float h)
 	attack2Buffer = new SoundBuffer();
 	jumpBuffer = new SoundBuffer();
 	walkBuffer = new SoundBuffer();
+	loseBuffer = new SoundBuffer();
 
 	hitBuffer->loadFromFile("sounds/Hit1.wav");
 	attack1Buffer->loadFromFile("sounds/Attack1.wav");
 	attack2Buffer->loadFromFile("sounds/Attack2.wav");
 	jumpBuffer->loadFromFile("sounds/jump.wav");
 	walkBuffer->loadFromFile("sounds/walk.wav");
+	loseBuffer->loadFromFile("sounds/Lose.wav");
 
 	hit = new Sound(*hitBuffer);
 	attack1 = new Sound(*attack1Buffer);
 	attack2 = new Sound(*attack2Buffer);
 	jump = new Sound(*jumpBuffer);
 	walk = new Sound(*walkBuffer);
+	lose = new Sound(*loseBuffer);
 
 	hit->setVolume(10);
 	attack1->setVolume(50);
@@ -44,7 +47,7 @@ Player::Player(String f, float PositionX, float PositionY, float w, float h)
 	health = 100;
 	directionMove = Status::right;
 	onGround = false;
-	image->loadFromFile("images/" + *file);
+	image->loadFromFile("images/Entities/" + *file);
 	texture->loadFromImage(*image);
 	sprite->setTexture(*texture);
 	sprite->setTextureRect(IntRect(0, 0, w, h)); //IntRect - приведение типов
@@ -54,7 +57,7 @@ Player::Player(String f, float PositionX, float PositionY, float w, float h)
 
 Player::~Player()
 {
-	delete settings, hitBuffer, attack1Buffer, attack2Buffer, jumpBuffer, walkBuffer, hit, attack1, attack2, jump, walk;
+	delete settings, hitBuffer, attack1Buffer, attack2Buffer, jumpBuffer, walkBuffer, loseBuffer,lose, hit, attack1, attack2, jump, walk;
 }
 
 void Player::update(float t, String* map)
@@ -85,6 +88,8 @@ void Player::update(float t, String* map)
 			dx = 0;
 			speed = 0;
 			break;
+
+		state = Status::stay;
 	}
 
 	x += dx*t;
@@ -93,6 +98,7 @@ void Player::update(float t, String* map)
 	checkCollisionWithMap(0, dy, map);//обрабатываем столкновение по Y
 	sprite->setPosition(x + width / 2, y + height / 2); //задаем позицию спрайта в место его центра
 	dy = dy + 0.00015*t; //Добавляем гравитацию
+	lifeCheck(t);
 }
 
 void Player::control(float& t) 
@@ -259,7 +265,7 @@ void Player::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ция п
 				}
 				if (Dy < 0)
 				{
-					y = i * 32 + 32;  dy = 0;
+					y = i * 32 + 32;  dy = 0; onGround = false;
 				}
 				if (Dx > 0)
 				{
@@ -273,7 +279,7 @@ void Player::checkCollisionWithMap(float Dx, float Dy, String* TileMap)//ф ция п
 		}
 }
 
-void Player::InteractionWithEntity(std::list<Entity*> &entities, std::list<Entity*>::iterator it)
+void Player::InteractionWithEntity(std::list<Entity*> &entities, std::list<Entity*>::iterator it, NPC* sharpoviy)
 {
 	if (settings->getInstance()->getStun()) // Отрисовка поверженных врагов
 	{
@@ -296,7 +302,7 @@ void Player::InteractionWithEntity(std::list<Entity*> &entities, std::list<Entit
 			if (combo == true && (int)currentFrame % 2 != 0 && (*it)->getLife())
 			{
 				attack1->play();
-				if(directionMove == Status::left)
+				if (directionMove == Status::left)
 					(*it)->setCoordinateX((*it)->getCoordinateX() - 10);
 				else
 					(*it)->setCoordinateX((*it)->getCoordinateX() + 10);
@@ -323,5 +329,21 @@ void Player::InteractionWithEntity(std::list<Entity*> &entities, std::list<Entit
 				}
 			}
 		}
+	}
+
+	if ((sharpoviy->getCoordinateX() - x < 200) && (sharpoviy->getCoordinateX() - x > 0) || x - sharpoviy->getCoordinateX() < 200 && x - sharpoviy->getCoordinateX() > 0)
+	{
+		sharpoviy->setShowDialogText(true);
+	}
+}
+
+void Player::lifeCheck(float& t)
+{
+	if (health <= 0)
+	{
+		life = false;
+		sprite->setScale(1, 1); //отразим по горизонтали
+		sprite->setTextureRect(IntRect(80 * 4, 160, 80, 75));
+		lose->play();
 	}
 }
