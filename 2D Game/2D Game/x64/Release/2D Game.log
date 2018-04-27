@@ -1,0 +1,29 @@
+﻿  Camera.cpp
+g:\фурсов\2d game\2d game\Camera.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  DarkGroundSpawner.cpp
+g:\фурсов\2d game\2d game\DarkGroundSpawner.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  Enemy.cpp
+g:\фурсов\2d game\2d game\Entity.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  Entity.cpp
+g:\фурсов\2d game\2d game\Entity.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  GameInterface.cpp
+g:\фурсов\2d game\2d game\GameInterface.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  GameProcess.cpp
+g:\фурсов\2d game\2d game\GameProcess.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  GroundSpawner.cpp
+g:\фурсов\2d game\2d game\GroundSpawner.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  IconPlayer.cpp
+g:\фурсов\2d game\2d game\GameInterface.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  LifeBar.cpp
+g:\фурсов\2d game\2d game\GameInterface.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  main.cpp
+main.cpp(1): fatal error C1083: Не удается открыть файл включение: SFML/Graphics.hpp: No such file or directory
+  MainMenu.cpp
+g:\фурсов\2d game\2d game\MainMenu.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  Map.cpp
+g:\фурсов\2d game\2d game\Map.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  NPC.cpp
+g:\фурсов\2d game\2d game\Entity.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  Player.cpp
+g:\фурсов\2d game\2d game\Player.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Graphics.hpp: No such file or directory
+  Settings.cpp
